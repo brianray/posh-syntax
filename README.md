@@ -37,10 +37,10 @@ BNF (Backus–Naur Form) grammar notation.
 	 <exprs>     ::= <exper> | <exper> <oper> <exper>
 	 <exper>     ::= <class>(<word>)
 	 <oper>      ::= '&' | '|'
-	 <scope>     ::= 'SENT' or 'PARA' [ '[' <flags> ']' ]
+	 <scope>     ::= 'SENT' | 'PARA' | 'SECTION' | 'DOC'
 	 <word>      ::=  {word} ['+' <hyper>] ['-' <hypo>]
 	 <returns>   ::= {return} | {return}, {return}
-	 <return>    ::= 'matchs' | 'n_matchs' | 'true' | {float} | {int}  
+	 <return>    ::= 'matchs' | 'true' | 'false' | {float} | {int}  
 	 <flags>     ::= [<flag>, <flag>] or <flag>
 	 <flag>      ::= {flag}
 	 
@@ -50,6 +50,8 @@ Key:
 * scope: 
 	* SENT: look in the scope of each sentence. All enclosed conditions must be true
 	* PARA: Look in the scope of a paragraph
+	* SECTION: look at larger section deliminated by some title format
+	* DOC: look in the schope of all given text for that subject
 * exprs: abstract 'Expression' contaiing one 'exper' (expression), or a chain held together with oper (operator)
 * class: The word class provided by user given taxonomy
 * word: the string that represents the word
